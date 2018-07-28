@@ -19,7 +19,7 @@ class App extends Component {
     )
   }
 
-//change book and self place 
+//change book and self place from github.com/danusk
   changeBook(book, newShelf) {
         const books = this.state.books
         let foundBook = false
