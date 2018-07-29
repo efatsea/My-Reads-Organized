@@ -21,7 +21,7 @@ class App extends Component {
 
 //change book and self place from github.com/danusk
   changeBook(book, newShelf) {
-        const books = this.state.books
+        const books = [...this.state.books]
         let foundBook = false
         books.forEach((b, index) => {
             if (b.id === book.id) {
@@ -67,14 +67,7 @@ class App extends Component {
                       books={ this.state.books }
                       changeBook={ this.changeBook.bind(this) }
                       shelf={ `read` }
-                    />
-                    <Bookshelf
-                      title="My Favourites"
-                      books={ this.state.books }
-                      changeBook={ this.changeBook.bind(this) }
-                      shelf={ `favourite` }
-                    />
-                    
+                    />                  
                   </div>
               </div>
               <div className="open-search">

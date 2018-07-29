@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 
 class Book extends Component {
 
-  state = {
-    value: 'none'
-  };
-
   render() {
     let { book, changeBook } = this.props;
     return (
       <div>
-        {}
+        
         <li className = "book">
           <div className = "book-top">
             <div
@@ -23,16 +19,16 @@ class Book extends Component {
               }}
             />
             <div className = "book-shelf-changer">
-              <select value = {book.shelf} onChange = {event => changeBook(book, event.target.value)}>
+              <select value={book.shelf ? book.shelf : 'none' } onChange = {event => changeBook(book, event.target.value)}>
                 <option value = "none" disabled>
                   Move to...
                 </option>
+                <option value = "none">None</option>
                 <option value = "currentlyReading">Currently Reading</option>
                 <option value = "wantToRead">Want to Read</option>
                 <option value = "read">Read</option>
-                <option value = "favourite">Favourite</option>
-                <option value = "none">None</option>
               </select>
+              {console.log(book.shelf)}
             </div>
           </div>
           <div className = "book-title">

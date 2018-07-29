@@ -9,13 +9,12 @@ class Search extends Component {
       super(props);
       this.state={
         query:'',
-        books:[],
-        searchError:false
+        books:[]
       };
     }
 
   handleUpdateQuery (query) {
-      if (!!query) {
+      if (query) {
         BooksAPI.search(query).then(data => {
           if (!!data.error) {
             this.setState({
@@ -38,6 +37,9 @@ class Search extends Component {
           }
         })
       }
+     else{
+       this.setState({books:[]})
+     } 
   }
 
   displaySearchResults() {
@@ -62,6 +64,7 @@ class Search extends Component {
             />;
           });
     }
+
   }
 
   render() {
