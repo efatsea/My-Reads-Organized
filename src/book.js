@@ -6,7 +6,6 @@ class Book extends Component {
     let { book, changeBook } = this.props;
     return (
       <div>
-        
         <li className = "book">
           <div className = "book-top">
             <div
@@ -19,8 +18,8 @@ class Book extends Component {
               }}
             />
             <div className = "book-shelf-changer">
-              <select value={book.shelf ? book.shelf : 'none' } onChange = {event => changeBook(book, event.target.value)}>
-                <option value = "none" disabled>
+              <select defaultValue={ book.shelf } onChange = {event => changeBook(book, event.target.value)}>
+                <option value = "disabled" disabled>
                   Move to...
                 </option>
                 <option value = "none">None</option>
